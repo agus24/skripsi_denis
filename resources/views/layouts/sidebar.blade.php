@@ -22,9 +22,8 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ url('/brands') }}" ><span class="title">Brands</span></a></li>
-                    <li><a href="{{ url('/specs') }}" ><span class="title">Specification</span></a></li>
-                    <li><a href="{{ url('/products') }}" ><span class="title">Products</span></a></li>
+                    <li><a href="{{ url('/brands') }}" ><span class="title">Merk</span></a></li>
+                    <li><a href="{{ url('/produk') }}" ><span class="title">Products</span></a></li>
                 </ul><!--end /submenu -->
             </li>
             <li>
