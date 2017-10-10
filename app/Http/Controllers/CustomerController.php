@@ -14,7 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $data = Customer::orderby('status','desc')->paginate(15);
+        return view('customer.index', compact('data'));
     }
 
     /**
@@ -57,7 +58,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        $data = $customer;
+        return view('customer.edit', compact('data'));
     }
 
     /**
@@ -69,7 +71,23 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $this->validate($request, [
+            "nama" => "required",
+            "email" => "required|email",
+            "alamat" => "required",
+            "telp" => "required",
+        ]);
+
+        $customer->nama = $request->nama;
+        $customer->email = $request->email;
+        if($request->password != "" || isset($request->password)) {
+            $customer->password = bcrypt($request->password);
+        }
+        $customer->alamat = $request->alamat;
+        $customer->telp = $request->telp;
+        $customer->save();
+
+        return redirect('customer');
     }
 
     /**
@@ -80,6 +98,13 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        if($customer->status == 1) {
+            $customer->status = 0;
+        }
+        else {
+            $customer->status = 1;
+        }
+        $customer->save();
+        return redirect('customer');
     }
 }

@@ -25,6 +25,9 @@
 .dz-size {
     display: none !important;
 }
+label {
+    font-weight: bold !important;
+}
 </style>
 @yield('style')
     <!-- END STYLESHEETS -->
