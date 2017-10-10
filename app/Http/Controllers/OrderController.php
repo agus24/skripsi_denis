@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Repo\OrderRepo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,9 +14,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Order $order)
     {
-        //
+        $data = OrderRepo::get($order);
+        return view('order.index',compact('data'));
     }
 
     /**
@@ -46,7 +49,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $data = OrderRepo::getWithDetail($order->id);
+        return view('order.detail',compact('data'));
     }
 
     /**
@@ -81,5 +85,28 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function approve($id)
+    {
+        $order = Order::find($id);
+        $order->tanggal_approve = Carbon::now()->format('Y-m-d');
+        $order->save();
+        return redirect('order');
+    }
+
+    public function kirim($id)
+    {
+        $order = Order::find($id);
+        $order->tanggal_kirim = Carbon::now()->format('Y-m-d');
+        $order->save();
+        return redirect('order');
+    }
+
+    public function reject($id)
+    {
+        $reject = OrderRepo::findReject($id);
+
+        return view('order.reject',compact('reject'));
     }
 }

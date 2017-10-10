@@ -18,7 +18,7 @@ class CreateProduksTable extends Migration
             $table->integer('merk_id')->unsigned();
             $table->string('nama');
             $table->text('spesifikasi');
-            $table->float('harga');
+            $table->integer('harga');
             $table->text('gambar');
             $table->timestamps();
         });
