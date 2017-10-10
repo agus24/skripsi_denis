@@ -21,4 +21,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('brands','MerkController');
     Route::resource('produk','ProdukController');
+    Route::resource('customer','CustomerController');
 });
+
+Route::get('test', 'ProdukController@removeAllTmp');

@@ -32,6 +32,12 @@
                     <span class="title">Order</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/customer') }}" >
+                    <div class="gui-icon"><i class="md md-person"></i></div>
+                    <span class="title">Customer</span>
+                </a>
+            </li>
 
             <li class="gui-folder">
                 <a>

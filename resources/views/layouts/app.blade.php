@@ -17,6 +17,14 @@
 .table th{
     font-weight: bold !important;
 }
+
+.dz-progress {
+  /* progress bar covers file name */
+  display: none !important;
+}
+.dz-size {
+    display: none !important;
+}
 </style>
 @yield('style')
     <!-- END STYLESHEETS -->
@@ -77,9 +85,11 @@
         <script src="{{ asset('assetAdmin/assets/js/core/source/AppForm.js') }}"></script>
         <script src="{{ asset('assetAdmin/assets/js/core/source/AppNavSearch.js') }}"></script>
         <script src="{{ asset('assetAdmin/assets/js/core/source/AppVendor.js') }}"></script>
+        <script src="{{ asset('assetAdmin/assets/js/libs/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('assetAdmin/assets/js/libs/ckeditor/adapters/jquery.js') }}"></script>
 
-        <script src="{{ asset('assetAdmin/assets/js/core/demo/Demo.js') }}"></script>
-        <script src="{{ asset('assetAdmin/assets/js/core/demo/DemoDashboard.js') }}"></script>
+        {{-- <script src="{{ asset('assetAdmin/assets/js/core/demo/Demo.js') }}"></script>
+        <script src="{{ asset('assetAdmin/assets/js/core/demo/DemoDashboard.js') }}"></script> --}}
         <!-- END JAVASCRIPT -->
         @yield('script')
 

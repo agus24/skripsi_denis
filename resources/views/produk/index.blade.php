@@ -35,7 +35,7 @@
                                     <td>{{ $item->nama_merk }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td align="right">{{ number_format($item->harga) }}</td>
-                                    <td>{{ $item->spesifikasi }}</td>
+                                    <td>{!! $item->spesifikasi !!}</td>
                                     <td>
                                         <a href="{{ url('/produk/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
                                         <form action="{{ url('produk/'.$item->id) }}" method="POST" style="display:inline">

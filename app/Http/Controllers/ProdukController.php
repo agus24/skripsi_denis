@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Merk;
 use App\Produk;
 use App\Repo\ProdukRepo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
 {
@@ -26,7 +30,8 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        $merks = Merk::all();
+        return view('produk.create', compact('merks'));
     }
 
     /**
@@ -37,7 +42,26 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "gambar" => "required",
+            "merk_id" => "required|numeric",
+            "nama" => "required",
+            "harga" => "required|numeric",
+            "spesifikasi" => "required",
+        ]);
+
+        $produk = new Produk;
+        $produk->gambar = $request->gambar;
+        $produk->merk_id = $request->merk_id;
+        $produk->nama = $request->nama;
+        $produk->harga = $request->harga;
+        $produk->spesifikasi = $request->spesifikasi;
+        $produk->save();
+
+        foreach(json_decode($request->gambar, true) as $gambar){
+            File::move(storage_path("app/public/tmp/".$gambar), storage_path("app/public/images/".$gambar));
+        }
+        return redirect('produk');
     }
 
     /**
@@ -59,7 +83,11 @@ class ProdukController extends Controller
      */
     public function edit(Produk $produk)
     {
-        //
+
+        $data = $produk;
+        $merks = Merk::all();
+
+        return view('produk.edit', compact('data','merks'));
     }
 
     /**
@@ -71,7 +99,28 @@ class ProdukController extends Controller
      */
     public function update(Request $request, Produk $produk)
     {
-        //
+        $this->validate($request, [
+            "gambar" => "required",
+            "merk_id" => "required|numeric",
+            "nama" => "required",
+            "harga" => "required|numeric",
+            "spesifikasi" => "required",
+        ]);
+
+        $produk->gambar = $request->gambar;
+        $produk->merk_id = $request->merk_id;
+        $produk->nama = $request->nama;
+        $produk->harga = $request->harga;
+        $produk->spesifikasi = $request->spesifikasi;
+        $produk->save();
+        foreach(json_decode($request->gambar, true) as $gambar){
+            if(Storage::exists("public/tmp/".$gambar)) {
+                // dd('masuk');
+                File::move(storage_path("app/public/tmp/".$gambar), storage_path("app/public/images/".$gambar));
+            }
+        }
+        $this->removeAllTmp();
+        return redirect('produk');
     }
 
     /**
@@ -82,6 +131,22 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+        $produk->delete();
+        return redirect('produk');
+    }
+
+    public function image(Request $request)
+    {
+        $file = $request->file('file');
+        $dest = storage_path('app/public/tmp');
+        $fn = Carbon::now()->format("Y-m-d")."_".uniqid().".".$file->getClientOriginalExtension();
+        $file->move($dest,$fn);
+        return $fn;
+    }
+
+    private function removeAllTmp()
+    {
+        $files = Storage::files("public/tmp/");
+        Storage::delete($files);
     }
 }
