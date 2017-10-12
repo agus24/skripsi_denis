@@ -14,8 +14,15 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        $this->assertTrue(true);
+    }
 
+    public function testCustomerLogin() 
+    {
+        $response = $this->post('api/login/customer', [
+            "email" => "balistreri.antwon@macejkovic.com",
+            "password" => "secret"
+        ]);
         $response->assertStatus(200);
     }
 }
