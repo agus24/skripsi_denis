@@ -7,9 +7,7 @@ use Hash;
 
 class Customer extends Model
 {
-    
-
-    public function scopecheckLogin($query, $email, $password) 
+    public function scopecheckLogin($query, $email, $password)
     {
         $data = $query->where('email', $email)->get();
         $response = ["status" => false, "data" => [] ];
