@@ -10,6 +10,7 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('Header', require('./components/Header.vue'));
 Vue.component('Footer', require('./components/Footer.vue'));
 Vue.component('Slider', require('./components/Slider.vue'));
+Vue.component('Banner', require('./components/innerBanner.vue'));
 
 const routes = [
   { path: '/', component: require('./page/Home.vue') },

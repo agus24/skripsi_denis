@@ -5,45 +5,6 @@
         <div class="side_item">
           <ul class="cols selection">
             <li><a class="login_toggle" href="#">Login</a></li>
-            <li>
-              <div class="emp_entry">
-                <div class="emp_title">English</div>
-                <div class="list">
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/us.png" alt="us">United State
-                  </a>
-                  <div class="list-entry">
-                    Change currency:
-                    <form>
-                      <div class="currency">
-                        <select name="countrychose" id="countrychose">
-                          <option>$ USD</option>
-                          <option>$ USD</option>
-                          <option>$ USD$ USD</option>
-                          <option>$ USD</option>
-                        </select>
-                      </div>
-                    </form>
-                    Other Countries
-                  </div>
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/uk.png" alt="uk"> United Kingdom
-                  </a>
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/france.png" alt="France"> France
-                  </a>
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/australia.png" alt="Australia"> Australia
-                  </a>
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/italia.png" alt="Italia"> Italia
-                  </a>
-                  <a class="list-entry" href="javascript:void(0)">
-                    <img src="images/duc.png" alt="Deutschland"> Deutschland
-                  </a>
-                </div>
-              </div>
-            </li>
           </ul>
           <div class="cols">
             <ul class="empr_nav">
@@ -60,7 +21,7 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                   <i class="fa fa-bars"></i>
               </button>
-          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+          <a class="navbar-brand" href="index.html">King Tire</a>
         </div>
         <!-- End Header Navigation -->
 
@@ -163,7 +124,7 @@
                     <div class="col-menu col-md-3">
                       <div class="content">
                         <div class="image">
-                          <img src="images/menu.jpg" alt="menu">
+                          <!-- <img src="images/menu.jpg" alt="menu"> -->
                           <div class="centered text-center">
                             <h4 class="text-uppercase">Deal of the week</h4>
                             <a href="#." class="btn_shop text-uppercase">Shop now</a>

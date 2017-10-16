@@ -3,8 +3,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Empor | About</title>
+<title>King Tire</title>
 <!-- Bootstrap -->
 <link href="{{ asset('cosmetic/css/bootstrap.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/font-awesome.min.css') }}">
@@ -66,7 +67,7 @@
       <li class="tablecart">
          <div class="photo">
             <a href="#">
-               <img src="images/tablecart1.jpg" alt="">
+               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
             </a>
          </div>
          <div class="cartbody">
@@ -78,7 +79,7 @@
       <li class="tablecart">
          <div class="photo">
             <a href="#">
-               <img src="images/tablecart1.jpg" alt="">
+               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
             </a>
          </div>
          <div class="cartbody">
@@ -90,7 +91,7 @@
       <li class="tablecart">
          <div class="photo">
             <a href="#">
-               <img src="images/tablecart1.jpg" alt="">
+               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
             </a>
          </div>
          <div class="cartbody">
@@ -101,7 +102,7 @@
       </li>
       <li class="text-center margin40 top40">
          <div class="image-cart bottom10">
-            <img src="images/shopping-cart.png" alt="">
+            {{-- <img src="images/shopping-cart.png" alt=""> --}}
          </div>
          <h4 class="text-uppercase">no products in the cart.</h4>
       </li>
@@ -122,7 +123,9 @@
   <button class="close_login"><i class="fa fa-close"></i></button>
   <div class="row">
     <div class="col-sm-6">
-       <div class="image"><img src="images/login-container.jpg" alt=""></div>
+       <div class="image">
+          {{-- <img src="images/login-container.jpg" alt=""> --}}
+        </div>
     </div>
     <div class="col-sm-6">
       <div class="contentform">
@@ -208,7 +211,7 @@
 
 <!--Footer Ends-->
 
-
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('cosmetic/jquery.2.2.3.min.js')}}"></script>
 <script src="{{ asset('cosmetic/bootstrap.min.js')}}"></script>
 <script src="{{ asset('cosmetic/bootsnav.js')}}"></script>
@@ -231,7 +234,6 @@
 <script src="{{ asset('cosmetic/revolution.extension.slideanims.min.js')}}"></script>
 <script src="{{ asset('cosmetic/revolution.extension.video.min.js')}}"></script>
 <script src="{{ asset('cosmetic/functions.js')}}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 </html>
