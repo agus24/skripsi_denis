@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Ubah Customer</div>
                     <div class="panel-body">
-                        <a href="{{ url('/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <a href="{{ url('admin/customer') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <br />
                         <br />
 
@@ -22,7 +22,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ url('customer/'.$data->id) }}" class="form-horizontal" method="POST">
+                        <form action="{{ url('admin/customer/'.$data->id) }}" class="form-horizontal" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <div class="form-group {{ $errors->has('nama') ? 'has-error' : ''}}">

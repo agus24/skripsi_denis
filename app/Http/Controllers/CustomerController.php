@@ -87,7 +87,7 @@ class CustomerController extends Controller
         $customer->telp = $request->telp;
         $customer->save();
 
-        return redirect('customer');
+        return redirect('admin/customer');
     }
 
     /**
@@ -105,6 +105,6 @@ class CustomerController extends Controller
             $customer->status = 1;
         }
         $customer->save();
-        return redirect('customer');
+        return redirect('admin/customer');
     }
 }

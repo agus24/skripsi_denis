@@ -42,7 +42,7 @@ class MerkController extends Controller
         $merk = new Merk;
         $merk->nama = $request->nama;
         $merk->save();
-        return redirect('brands');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -84,7 +84,7 @@ class MerkController extends Controller
         $merk = $merk->find($id);
         $merk->nama = $request->nama;
         $merk->save();
-        return redirect('brands');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -96,6 +96,6 @@ class MerkController extends Controller
     public function destroy(Merk $merk, $id)
     {
         $merk->destroy($id);
-        return redirect('brands');
+        return redirect()->route('brands.index');
     }
 }

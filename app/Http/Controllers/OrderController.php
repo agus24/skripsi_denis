@@ -92,7 +92,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->tanggal_approve = Carbon::now()->format('Y-m-d');
         $order->save();
-        return redirect('order');
+        return redirect('admin/order');
     }
 
     public function kirim($id)
@@ -100,7 +100,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->tanggal_kirim = Carbon::now()->format('Y-m-d');
         $order->save();
-        return redirect('order');
+        return redirect('admin/order');
     }
 
     public function reject($id)

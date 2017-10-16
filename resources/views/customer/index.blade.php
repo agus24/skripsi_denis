@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        {{-- <a href="{{ url('/customer/create') }}" class="btn btn-success btn-sm">
+                        {{-- <a href="{{ url('admin/customer/create') }}" class="btn btn-success btn-sm">
                             <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a> --}}
                         <br/>
@@ -42,8 +42,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('/customer/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
-                                        <form action="{{ url('customer/'.$item->id) }}" method="POST" style="display:inline">
+                                        <a href="{{ url('admin/customer/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
+                                        <form action="{{ url('admin/customer/'.$item->id) }}" method="POST" style="display:inline">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button class="btn btn-danger btn-xs" title="Delete Brand"><i class="fa fa-trash-o" aria-hidden="true" onclick="return confirm("Confirm delete?")"></i> Ubah Status</button>

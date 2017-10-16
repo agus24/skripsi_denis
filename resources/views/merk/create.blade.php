@@ -11,7 +11,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Tambah Merk</div>
                     <div class="panel-body">
-                        <a href="{{ url('/brands') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
+                        <a href="{{ url('admin/brands') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</button></a>
                         <br />
                         <br />
 
@@ -22,7 +22,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ url('brands') }}" class="form-horizontal" method="POST">
+                        <form action="{{ url('admin/brands') }}" class="form-horizontal" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
                             <label class="col-md-4 control-label" label-for="name">Nama</label>

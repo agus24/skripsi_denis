@@ -22,18 +22,18 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ url('/brands') }}" ><span class="title">Merk</span></a></li>
-                    <li><a href="{{ url('/produk') }}" ><span class="title">Products</span></a></li>
+                    <li><a href="{{ route('brands.index') }}" ><span class="title">Merk</span></a></li>
+                    <li><a href="{{ route('produk.index') }}" ><span class="title">Products</span></a></li>
                 </ul><!--end /submenu -->
             </li>
             <li>
-                <a href="{{ url('/order') }}" >
+                <a href="{{ route('order.index') }}" >
                     <div class="gui-icon"><i class="md md-settings-ethernet"></i></div>
                     <span class="title">Order</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url('/customer') }}" >
+                <a href="{{ route('customer.index') }}" >
                     <div class="gui-icon"><i class="md md-person"></i></div>
                     <span class="title">Customer</span>
                 </a>
@@ -46,9 +46,9 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ url('/user') }}" ><span class="title">User Manager</span></a></li>
-                    <li><a href="{{ url('/company') }}" ><span class="title">Company</span></a></li>
-                    <li><a href="{{ url('/discount') }}" ><span class="title">Discount</span></a></li>
+                    <li><a href="{{ url('admin/user') }}" ><span class="title">User Manager</span></a></li>
+                    <li><a href="{{ url('admin/company') }}" ><span class="title">Company</span></a></li>
+                    <li><a href="{{ url('admin/discount') }}" ><span class="title">Discount</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 

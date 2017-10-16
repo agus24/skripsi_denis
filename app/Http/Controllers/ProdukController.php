@@ -61,7 +61,7 @@ class ProdukController extends Controller
         foreach(json_decode($request->gambar, true) as $gambar){
             File::move(storage_path("app/public/tmp/".$gambar), storage_path("app/public/images/".$gambar));
         }
-        return redirect('produk');
+        return redirect('admin/produk');
     }
 
     /**
@@ -120,7 +120,7 @@ class ProdukController extends Controller
             }
         }
         $this->removeAllTmp();
-        return redirect('produk');
+        return redirect('admin/produk');
     }
 
     /**
@@ -132,7 +132,7 @@ class ProdukController extends Controller
     public function destroy(Produk $produk)
     {
         $produk->delete();
-        return redirect('produk');
+        return redirect('admin/produk');
     }
 
     public function image(Request $request)

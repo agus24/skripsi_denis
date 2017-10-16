@@ -1,0 +1,259 @@
+<template>
+  <header class="default">
+    <nav class="navbar navbar-default navbar-sticky bootsnav">
+      <div class="container">
+        <div class="side_item">
+          <ul class="cols selection">
+            <li><a class="login_toggle" href="#">Login</a></li>
+            <li>
+              <div class="emp_entry">
+                <div class="emp_title">English</div>
+                <div class="list">
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/us.png" alt="us">United State
+                  </a>
+                  <div class="list-entry">
+                    Change currency:
+                    <form>
+                      <div class="currency">
+                        <select name="countrychose" id="countrychose">
+                          <option>$ USD</option>
+                          <option>$ USD</option>
+                          <option>$ USD$ USD</option>
+                          <option>$ USD</option>
+                        </select>
+                      </div>
+                    </form>
+                    Other Countries
+                  </div>
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/uk.png" alt="uk"> United Kingdom
+                  </a>
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/france.png" alt="France"> France
+                  </a>
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/australia.png" alt="Australia"> Australia
+                  </a>
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/italia.png" alt="Italia"> Italia
+                  </a>
+                  <a class="list-entry" href="javascript:void(0)">
+                    <img src="images/duc.png" alt="Deutschland"> Deutschland
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="cols">
+            <ul class="empr_nav">
+              <li><a href="#."><i class="icon-heart3"></i></a></li>
+              <li class="search_btn"><i class="icon-icons185"></i></li>
+              <li><a href="#."><i class="icon-icons9"></i></a></li>
+              <li><a href="javascript:void(0)" class="hamburger is-closed" data-toggle="offcanvas"><i class="icon-icons102"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                  <i class="fa fa-bars"></i>
+              </button>
+          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <ul class="nav navbar-nav navbar-left" data-in="fadeIn" data-out="fadeOut">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Home Shop 1</a></li>
+                <li><a href="index2.html">Home Shop 2</a></li>
+                <li><a href="index3.html">Home V3 — Collection: Men</a></li>
+                <li><a href="index4.html">Home V4 — Collection: Women</a></li>
+                <li><a href="index5.html">Home V5 — Collections / Parallax</a></li>
+                <li><a href="index6.html">Home V6 — Simple eCommerce</a></li>
+                <li><a href="shop4.html">Home V7 — Portfolio</a></li>
+                <li><a href="#">Home V8 — Startup Site</a></li>
+              </ul>
+            </li>
+            <li class="dropdown megamenu-fw">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop Styles</a>
+              <ul class="dropdown-menu half-content" role="menu">
+                <li>
+                  <div class="row">
+                    <div class="col-menu col-md-5">
+                      <h6 class="title">Layouts</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop1.html">Home Shop 1</a></li>
+                          <li><a href="shop2.html">Home Shop 2</a></li>
+                          <li><a href="shop3.html">Home Shop 3</a></li>
+                          <li><a href="shop4.html">Home Shop 4</a></li>
+                          <li><a href="shop5.html">Home Shop 5</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-6 -->
+                    <div class="col-menu col-md-7">
+                      <h6 class="title">Layouts</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-detail2.html">Shop — Catalog</a></li>
+                          <li><a href="shop4.html">Shop — Categories Grid</a></li>
+                          <li><a href="shop-detail3.html">Shop — Product Category</a></li>
+                          <li><a href="shop3.html">Shop — with Sidebar</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-6 -->
+                  </div>
+                  <!-- end row -->
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown megamenu-fw">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+              <ul class="dropdown-menu megamenu-content" role="menu">
+                <li>
+                  <div class="row">
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Categories</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-detail2.html">Shop — Catalog</a></li>
+                          <li><a href="shop-detail1.html">Shop — Categories Grid</a></li>
+                          <li><a href="shop5.html">Shop — Product Category</a></li>
+                          <li><a href="shop3.html">Shop — with Sidebar</a></li>
+                          <li><a href="wishlist.html">Shopping Cart</a></li>
+                          <li><a href="shop-cart.html">Checkout</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Products demos</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-recent1.html">Shop — Catalog</a></li>
+                          <li><a href="shop-recent2.html">Shop — Categories Grid</a></li>
+                          <li><a href="shop-recent3.html">Shop — with Sidebar</a></li>
+                          <li><a href="wishlist.html">Shopping Cart</a></li>
+                          <li><a href="shop-cart.html">Checkout</a></li>
+                          <li><a href="shop-cart.html">Order Tracking</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Shop Pages</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-detail1.html">Shop — Categories Grid</a></li>
+                          <li><a href="shop5.html">Shop — Product Category</a></li>
+                          <li><a href="shop3.html">Shop — with Sidebar</a></li>
+                          <li><a href="wishlist.html">Shopping Cart</a></li>
+                          <li><a href="shop-cart.html">Order Tracking</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-menu col-md-3">
+                      <div class="content">
+                        <div class="image">
+                          <img src="images/menu.jpg" alt="menu">
+                          <div class="centered text-center">
+                            <h4 class="text-uppercase">Deal of the week</h4>
+                            <a href="#." class="btn_shop text-uppercase">Shop now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                  </div>
+                  <!-- end row -->
+                </li>
+              </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li class="dropdown megamenu-fw">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Elements</a>
+              <ul class="dropdown-menu megamenu-content" role="menu">
+                <li>
+                  <div class="row">
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Categories</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-recent1.html">Shop — Catalog</a></li>
+                          <li><a href="shop-recent2.html">Shop — Categories Grid</a></li>
+                          <li><a href="shop5.html">Shop — Product Category</a></li>
+                          <li><a href="shop-recent3.html">Shop — with Sidebar</a></li>
+                          <li><a href="wishlist.html">Shopping Cart</a></li>
+                          <li><a href="shop-cart.html">Checkout</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Products demos</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="shop-recent1.html">Shop — Catalog</a></li>
+                          <li><a href="#">Shop — Categories Grid</a></li>
+                          <li><a href="#">Shop — with Sidebar</a></li>
+                          <li><a href="#">Shopping Cart</a></li>
+                          <li><a href="#">Checkout</a></li>
+                          <li><a href="shop-cart.html">Order Tracking</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Other Pages</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="contact.html">Contact  — V1</a></li>
+                          <li><a href="contact2.html">Contact  — V2</a></li>
+                          <li><a href="contact3.html">Contact  — V3</a></li>
+                          <li><a href="faq.html">Faq's</a></li>
+                          <li><a href="404.html">404</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-menu col-md-3">
+                      <h6 class="title">Other Pages</h6>
+                      <div class="content">
+                        <ul class="menu-col">
+                          <li><a href="about.html">About Us</a></li>
+                          <li><a href="about-designer.html">About Designer</a></li>
+                          <li><a href="author-post.html">Author Posts</a></li>
+                          <li><a href="wishlist.html">Wishlist</a></li>
+                          <li><a href="wishlist-empty.html">Wishlist Empty</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end col-3 -->
+                  </div>
+                  <!-- end row -->
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Demos</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+    </nav>
+  </header>
+</template>
+
+<script>
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
+</script>

@@ -13,3 +13,5 @@ Route::post('produk/img', 'ProdukController@image');
 
 Route::post('login/customer', 'ApiController@loginCustomer');
 Route::get('produk/all', 'ApiController@getProduk');
+Route::get('produk/{merk}', 'ApiController@getProdukMerk');
+Route::get('banner/all', 'ApiController@getBanner');

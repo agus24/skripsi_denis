@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Banner;
 use App\Customer;
-use App\Repo\ProdukRepo;
 use App\Produk;
+use App\Repo\ProdukRepo;
+use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
@@ -25,6 +26,20 @@ class ApiController extends Controller
 
     public function getProduk(Request $request)
     {
-        return ProdukRepo::getApi(Produk::class);
+        return ProdukRepo::getApi(new Produk);
+    }
+
+    public function getProdukMerk(Request $request, $merk)
+    {
+        return ProdukRepo::getWithMerk(new Produk, $merk);
+    }
+
+    public function getBanner(Request $request)
+    {
+        $banner = Banner::where('status',1)->get()->map(function($value, $key) {
+            $value->gambar = asset('storage/images/banner/'. $value->gambar);
+            return $value;
+        });
+        return $banner;
     }
 }

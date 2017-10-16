@@ -30,7 +30,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ url('produk/'.$data->id) }}" class="form-horizontal" method="POST" id="mainForm">
+                        <form action="{{ url('admin/produk/'.$data->id) }}" class="form-horizontal" method="POST" id="mainForm">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <input type="hidden" name="gambar" id="gambar">

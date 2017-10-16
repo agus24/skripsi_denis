@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ url('/produk/create') }}" class="btn btn-success btn-sm" title="Add New Brand">
+                        <a href="{{ url('admin/produk/create') }}" class="btn btn-success btn-sm" title="Add New Brand">
                             <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                         </a>
                         <br/>
@@ -31,14 +31,15 @@
                                 <tr>
                                     <td>{{ $key+1 }}.</td>
                                     <?php $gambar = json_decode($item->gambar, true); ?>
-                                    <td><img src="{{ asset("storage/images/".$gambar[0]) }}" width="75px"></td>
+                                    <?php $tampil = count($gambar) != 0 ? $gambar[0] : ""; ?>
+                                    <td><img src="{{ asset("storage/images/".$tampil) }}" width="75px"></td>
                                     <td>{{ $item->nama_merk }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td align="right">{{ number_format($item->harga) }}</td>
                                     <td>{!! $item->spesifikasi !!}</td>
                                     <td>
-                                        <a href="{{ url('/produk/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
-                                        <form action="{{ url('produk/'.$item->id) }}" method="POST" style="display:inline">
+                                        <a href="{{ url('admin/produk/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
+                                        <form action="{{ url('admin/produk/'.$item->id) }}" method="POST" style="display:inline">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button class="btn btn-danger btn-xs" title="Delete Brand"><i class="fa fa-trash-o" aria-hidden="true" onclick="return confirm("Confirm delete?")"></i> Hapus</button>

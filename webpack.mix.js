@@ -25,5 +25,20 @@ mix.styles([
         "public/assetAdmin/assets/css/theme-default/libs/bootstrap-colorpicker/bootstrap-colorpicker.css",
         "public/assetAdmin/assets/css/theme-default/libs/bootstrap-tagsinput/bootstrap-tagsinput.css",
         "public/assetAdmin/assets/css/theme-default/libs/typeahead/typeahead.css",
-        "public/assetAdmin/assets/css/theme-default/libs/dropzone/dropzone-theme.css"
-    ], "public/css/materialize.css");
+        "public/assetAdmin/assets/css/theme-default/libs/dropzone/dropzone-theme.css",
+    ], "public/css/materialize.css")
+    .styles([
+        "resources/assets/css/font-awesome.min.css",
+        "resources/assets/css/empor-icon.css",
+        "resources/assets/css/animate.min.css",
+        "resources/assets/css/bootstrap-select.min.css",
+        "resources/assets/css/bootstrap-slider.min.css",
+        "resources/assets/css/cubeportfolio.min.css",
+        "resources/assets/css/owl.carousel.min.css",
+        "resources/assets/css/settings.css",
+        "resources/assets/css/bootsnav.css",
+        "resources/assets/css/style.css",
+    ],'public/css/frontend.css')
+    .js([
+        "resources/assets/js/app.js"
+    ], "public/js/app.js");
