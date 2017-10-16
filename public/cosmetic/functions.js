@@ -310,7 +310,7 @@ jQuery(function ($) {
    $(".emp-share").on("click", function () {
       $(".share-holder").fadeToggle();
    });
-      
+
 
    /* ----- POPOver ----- */
    $(function () {

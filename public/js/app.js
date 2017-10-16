@@ -33482,8 +33482,73 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 gbr = response.data;
                 _this.gambar = gbr;
                 console.log(_this.gambar);
+                _this.revo();
             }).catch(function (response) {
                 console.log(response);
+            });
+        },
+        revo: function revo() {
+            $("#rev_digit").show().revolution({
+                sliderType: "standard",
+                sliderLayout: "fullwidth",
+                delay: 4000,
+                navigation: {
+                    keyboardNavigation: "on",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    onHoverStop: "on",
+                    touch: {
+                        touchenabled: "on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 1,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: false
+                    },
+                    arrows: {
+                        enable: false
+
+                    },
+                    tabs: {
+                        style: "",
+                        enable: true,
+                        width: 26,
+                        height: 26,
+                        min_width: 20,
+                        wrapper_padding: 0,
+                        wrapper_color: "transparent",
+                        wrapper_opacity: "0",
+                        tmp: '<div class="tp-tab-title">{{title}}</div>',
+                        visibleAmount: 3,
+                        hide_onmobile: true,
+                        hide_under: 993,
+                        hide_onleave: false,
+                        hide_delay: 200,
+                        direction: "horizontal",
+                        span: false,
+                        position: "inner",
+                        space: 10,
+                        h_align: "center",
+                        v_align: "bottom",
+                        h_offset: 0,
+                        v_offset: 50
+                    }
+                },
+                viewPort: {
+                    enable: true,
+                    outof: "pause",
+                    visible_area: "80%"
+                },
+                responsiveLevels: [1240, 1024, 778, 480],
+                gridwidth: [1280, 992, 767, 480],
+                gridheight: [860, 760, 400, 380],
+                disableProgressBar: "off",
+                spinner: "off",
+                parallax: {
+                    type: "mouse",
+                    origo: "slidercenter",
+                    speed: 9000,
+                    levels: [2, 3, 4, 5, 6, 8, 7, 12, 16, 10, 50]
+                }
             });
         }
     }
@@ -33514,10 +33579,10 @@ var render = function() {
         [
           _c(
             "ul",
-            _vm._l(_vm.gambar, function(gbr) {
+            _vm._l(_vm.gambar, function(gbr, index) {
               return _c(
                 "div",
-                [_c("Banner", { attrs: { gambar: "gbr.gambar" } })],
+                [_c("Banner", { attrs: { gambar: gbr.gambar } })],
                 1
               )
             })
