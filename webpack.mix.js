@@ -31,3 +31,5 @@ mix.styles([
     .js([
         "resources/assets/js/app.js"
     ], "public/js/app.js");
+
+mix.js(["resources/assets/js/axios.js"], 'public/js/axios.js');

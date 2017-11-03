@@ -2,7 +2,7 @@
     <div>
         <Header />
         <main>
-            <Slider />
+            <ItemContainer />
         </main>
         <Footer />
     </div>

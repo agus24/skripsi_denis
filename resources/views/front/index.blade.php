@@ -1,239 +1,74 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>King Tire</title>
-<!-- Bootstrap -->
-<link href="{{ asset('cosmetic/css/bootstrap.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/font-awesome.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/empor-icon.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/animate.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/bootstrap-select.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/bootstrap-slider.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/cubeportfolio.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/owl.carousel.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/settings.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/bootsnav.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('cosmetic/css/style.css') }}">
-<link rel="icon" href="images/favicon.png">
+<html lang="en">
+<head>
+<title>{{ Config::get('app.name') }}</title>
+<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap-theme.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<link rel="stylesheet" type="text/css" href="{{ asset('css/front.css') }}">
+<style type="text/css">
+    .parallax {
+        height: 500px;
+        width:100%;
+        float:left;
+    }
+    .parallax .image {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("{{ asset('storage/parallax.jpg') }}");
+        -webkit-filter: grayscale(100%) blur(5px); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%) blur(5px);
+        z-index :0;
+    }
+
+    .parallax-content {
+        position: absolute;
+        color:white;
+        text-align: center;
+        width: 100%;
+        margin-top: 11%;
+        font-family: Courier;
+        font-weight: bold;
+        font-size:4em;
+        text-shadow: 5px 5px black;
+        text-transform: uppercase;
+    }
+</style>
 </head>
-<body class="boxed">
 
+<body class="menubar-hoverable header-fixed ">
+    @include('front.navbar')
+    <section id="shop">
+        @include('front.shop')
+    </section>
 
-<!--Pre LOADER-->
-<div class="loader">
-  <div id="cssload-wrapper">
-    <div class="cssload-loader">
-      <div class="cssload-line"></div>
-      <div class="cssload-line"></div>
-      <div class="cssload-line"></div>
-      <div class="cssload-line"></div>
-      <div class="cssload-line"></div>
-      <div class="cssload-line"></div>
-      <div class="cssload-subline"></div>
-      <div class="cssload-subline"></div>
-      <div class="cssload-subline"></div>
-      <div class="cssload-subline"></div>
-      <div class="cssload-subline"></div>
-      <div class="cssload-loader-circle-1"><div class="cssload-loader-circle-2"></div></div>
-      <div class="cssload-needle"></div>
-      <div class="cssload-loading">loading</div>
-    </div>
-  </div>
-</div>
-<!--Pre LOader Ends-->
-
-<div id="app">
-  <router-view></router-view>
-</div>
-<!--HEADER STARTS-->
-
-<!--HEADER ENDS-->
-
-
-<!--Shopping Cart-->
-<div id="sidebar-wrapper">
-   <ul class="nav sidebar-nav">
-      <li class="tablecart">
-         <div class="photo">
-            <a href="#">
-               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
-            </a>
-         </div>
-         <div class="cartbody">
-            <h5>Little Barrel in White</h5>
-            <span>1 × $1,288.00</span>
-            <i class="fa fa-close cross"></i>
-         </div>
-      </li>
-      <li class="tablecart">
-         <div class="photo">
-            <a href="#">
-               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
-            </a>
-         </div>
-         <div class="cartbody">
-            <h5>Little Barrel in White</h5>
-            <span>1 × $1,288.00</span>
-            <i class="fa fa-close cross"></i>
-         </div>
-      </li>
-      <li class="tablecart">
-         <div class="photo">
-            <a href="#">
-               {{-- <img src="images/tablecart1.jpg" alt=""> --}}
-            </a>
-         </div>
-         <div class="cartbody">
-            <h5>Little Barrel in White</h5>
-            <span>1 × $1,288.00</span>
-            <i class="fa fa-close cross"></i>
-         </div>
-      </li>
-      <li class="text-center margin40 top40">
-         <div class="image-cart bottom10">
-            {{-- <img src="images/shopping-cart.png" alt=""> --}}
-         </div>
-         <h4 class="text-uppercase">no products in the cart.</h4>
-      </li>
-   </ul>
-   <div class="cart-bottom clearfix">
-      <h5 class="pull-left top10 bottom10">SUBTOTAL</h5>
-      <h5 class="pull-right top10 bottom10">$1,798.00</h5>
-      <div class="clearfix"></div>
-      <a class="btn btn_dark button_moema">view cart</a>
-      <a class="btn btn_colored button_moema">Checkout</a>
-   </div>
-</div>
-<!--Shopping Cart ends-->
-
-
-<!-- Login starts -->
-<div class="login_container fullscreen">
-  <button class="close_login"><i class="fa fa-close"></i></button>
-  <div class="row">
-    <div class="col-sm-6">
-       <div class="image">
-          {{-- <img src="images/login-container.jpg" alt=""> --}}
-        </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="contentform">
-    <ol class="breadcrumb_simple text-center heading_space">
-      <li><a href="#">My Account</a></li>
-      <li><a href="#">My Wishlist</a></li>
-      <li class="active">My Cart</li>
-      <li><a href="#">Checkout</a></li>
-    </ol>
-    <div class="logintabbed bottom30">
-      <ul class="nav nav-tabs nav-justified heading_space" role="tablist">
-        <li role="presentation" class="active"><a href="#registered" aria-controls="registered" role="tab" data-toggle="tab">Already Registered</a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">New to empor ?</a></li>
-      </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="registered">
-          <form class="callus">
-            <div class="form-group">
-              <label>EMAIL ADDRESS</label>
-              <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label>PASSWORD </label>
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="checkbox" name="check-box">
-                  <span>Remember Me</span>
-                </div>
-              </div>
-              <div class="col-sm-6 text-right">
-                <a href="#" class="lost-pass">Lost your password?</a>
-              </div>
-            </div>
-            <button type="submit" class="btn btn_dark btn_full">login</button>
-          </form>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="profile">
-          <form class="callus">
-            <div class="form-group">
-              <label>Name </label>
-              <input type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="form-group">
-              <label>EMAIL ADDRESS</label>
-              <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label>PASSWORD </label>
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn_dark btn_full">Register</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="hr_head"><span>OR</span></div>
-    <div class="share_with text-center top30">
-      <h5 class="bottom20">SIGN IN WITH...</h5>
-      <a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook </a>
-      <a href="#." class="twitter"><i class="icon-twitter-1"></i> twitter</a>
-      <a href="#." class="google"><i class="icon-google4"></i> google +</a>
-    </div>
-  </div>
-    </div>
-  </div>
-</div>
-<!-- Login end -->
-
-
-<!--Search-->
-<div id="search">
-  <button type="button" class="close">×</button>
-  <form class="centered clearfix">
-    <input type="search" value="" placeholder="Search here...."  required/>
-    <button type="submit" class="btn-search"><i class="icon-icons185"></i></button>
-  </form>
-</div>
-
-<!--Footer Starts-->
-
-<!--Footer Ends-->
-
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('cosmetic/jquery.2.2.3.min.js')}}"></script>
-<script src="{{ asset('cosmetic/bootstrap.min.js')}}"></script>
-<script src="{{ asset('cosmetic/bootsnav.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery.appear.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery-countTo.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery.cubeportfolio.min.js')}}"></script>
-<script src="{{ asset('cosmetic/footer-reveal.min.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery.matchHeight-min.js')}}"></script>
-<script src="{{ asset('cosmetic/owl.carousel.min.js')}}"></script>
-<script src="{{ asset('cosmetic/viedobox_video.js')}}"></script>
-<script src="{{ asset('cosmetic/bootstrap-slider.min.js')}}"></script>
-<script src="{{ asset('cosmetic/bootstrap-select.min.js')}}"></script>
-<script src="{{ asset('cosmetic/select.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery.themepunch.tools.min.js')}}"></script>
-<script src="{{ asset('cosmetic/jquery.themepunch.revolution.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.actions.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.layeranimation.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.navigation.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.parallax.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.slideanims.min.js')}}"></script>
-<script src="{{ asset('cosmetic/revolution.extension.video.min.js')}}"></script>
-<script src="{{ asset('cosmetic/functions.js')}}"></script>
-
+    @include('front.modal.login')
+    @include('front.modal.signup')
+    @include('front.modal.aboutus')
+    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/axios.js') }}"></script>
+    <script src="{{ asset('js/User.js') }}"></script>
+    <script>
+        const prod = {!! $produks->toJson() !!};
+        const baseUrl = "{{ url('/') }}";
+        const user = new User;
+        function JsonHandler(json) {
+            this.json = json;
+            this.find = (key,value) => {
+                for(let i = 0 ; i < this.json.length ; i++){
+                    if(this.json[i][key] == value) {
+                        return i;
+                    }
+                }
+                return false;
+            }
+        }
+    </script>
+    <script src="{{ asset('js/front.login.js') }}"></script>
+    @include('front.script.cart')
 </body>
 </html>

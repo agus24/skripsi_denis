@@ -1,7 +1,5 @@
 <?php
 
-Route::get('/', function() {
-    return view('front.index');
-});
+Route::get('/', "FrontController@index");
 
 Route::get('test', 'ProdukController@removeAllTmp');

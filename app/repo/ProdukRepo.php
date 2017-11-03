@@ -13,6 +13,18 @@ class ProdukRepo
                       ->paginate(15);
     }
 
+    public static function getAll(Produk $produk)
+    {
+        return $produk->join('merks','produks.merk_id','merks.id')
+                      ->select('produks.*','merks.nama as nama_merk')
+                      ->get()
+                      ->map(function($value , $key) {
+                        $value->hargaText = number_format($value->harga);
+                        $value->gambar = json_decode($value->gambar,true)[0];
+                        return $value;
+                      });
+    }
+
     public static function getApi(Produk $produk)
     {
         return static::getData($produk);
@@ -31,6 +43,7 @@ class ProdukRepo
         {
           $data = $data->where("merk_id", $merk);
         }
+
         $data = $data->get()->map(function($value, $key) {
             $gambar = json_decode($value->gambar, true);
             foreach ($gambar as $key => $val) {
