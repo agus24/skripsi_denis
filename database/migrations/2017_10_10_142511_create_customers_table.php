@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->text('alamat');
             $table->string('telp');
             $table->integer('status');
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }

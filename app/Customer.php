@@ -3,10 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Hash;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
+
+    protected $fillable = [
+        'nama',
+        'email',
+        'password',
+        'alamat',
+        'telp'
+    ];
+
     public function scopecheckLogin($query, $email, $password)
     {
         $data = $query->where('email', $email)->get();
