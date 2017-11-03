@@ -41,7 +41,9 @@ class FrontController extends Controller
         return Redirect::back();
     }
 
-    public function removeCart($id) {
-        UserCart::rm($id);
+    public function removeCart($id)
+    {
+        UserCart::destroy($id);
+        return Redirect::back();
     }
 }

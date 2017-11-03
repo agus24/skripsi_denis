@@ -32,8 +32,8 @@ class ViewComposer
     {
         if(!Auth::guard('customer')->guest())
         {
-            $user = Auth::guard('customer')->user();
-            $this->cart = UserCart::getByUser($user);
+            $user = Auth::guard('customer')->user()->id;
+            $this->cart = (new UserCart)->getByUser($user);
         }
         else {
             $this->cart = collect([]);

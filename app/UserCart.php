@@ -28,20 +28,15 @@ class UserCart extends Model
         }
     }
 
-    public function scopegetByUser($user)
+    public function getByUser($user_id)
     {
         return $this->join('produks', 'produks.id','user_carts.produk_id')
-            ->where('customer_id', $user->get()[0]->id)
+            ->where('customer_id', $user_id)
             ->select('user_carts.*','produks.nama as nama_produk')->get();
     }
 
     public function modifyCart($id, $qty)
     {
         $cart = $this->where('id', $id)->update(['qty' => $qty]);
-    }
-
-    public function scoperm($id)
-    {
-        $this->delete($id);
     }
 }
