@@ -40,4 +40,8 @@ class FrontController extends Controller
         (new UserCart)->modifyCart($id,$request->qty);
         return Redirect::back();
     }
+
+    public function removeCart($id) {
+        UserCart::rm($id);
+    }
 }

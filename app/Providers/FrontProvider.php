@@ -14,7 +14,7 @@ class FrontProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('front.index',"App\Front\ViewComposer");
+        View::composer(['front.index','front.aboutus','front.termcondition'],"App\Front\ViewComposer");
     }
 
     /**

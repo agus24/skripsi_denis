@@ -39,4 +39,9 @@ class UserCart extends Model
     {
         $cart = $this->where('id', $id)->update(['qty' => $qty]);
     }
+
+    public function scoperm($id)
+    {
+        $this->delete($id);
+    }
 }
