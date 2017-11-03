@@ -204,6 +204,7 @@
         @include('modal.register')
         @include('modal.forgetPassword')
         @include('front.layouts.cart')
+        @yield('modal')
 
         <script type='text/javascript' src='{{ asset('front/js/jquery.js') }}'></script>
         <script type='text/javascript' src='{{ asset('front/js/jquery-migrate.min.js') }}'></script>
@@ -333,5 +334,6 @@
                 }
             }); /*ready*/
         </script>
+        @yield('script')
     </body>
 </html>

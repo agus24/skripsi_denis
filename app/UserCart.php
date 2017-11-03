@@ -13,10 +13,10 @@ class UserCart extends Model
 
     public function add($user, $item, $qty)
     {
-        $cart = $this->where('customer_id',$user->id)->where('produk_id',$item)->get();
-        if($cart->count() > 0)
+        $cart = $this->where('customer_id',$user->id)->where('produk_id',$item);
+        if($cart->get()->count() > 0)
         {
-            $cart->update('qty', $cart[0]->qty + $qty);
+            $cart->update(['qty' => $cart->get()[0]->qty + $qty]);
         }
         else
         {
@@ -38,5 +38,15 @@ class UserCart extends Model
     public function modifyCart($id, $qty)
     {
         $cart = $this->where('id', $id)->update(['qty' => $qty]);
+    }
+
+    public function getAllCart($id)
+    {
+        return $this->join('produks', 'produks.id','user_carts.produk_id')->where('customer_id', $id)->select('user_carts.*','produks.nama as nama_produk','produks.harga')->get();
+    }
+
+    public function removeByUserId($id)
+    {
+        $this->where('customer_id',$id)->delete();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Banner;
 use App\Customer;
+use App\Order;
 use App\Produk;
 use App\Repo\ProdukRepo;
 use Illuminate\Http\Request;
@@ -41,5 +42,11 @@ class ApiController extends Controller
             return $value;
         });
         return $banner;
+    }
+
+    public function getOrder($id)
+    {
+        $order = (new Order)->findDetail($id);
+        return $order;
     }
 }

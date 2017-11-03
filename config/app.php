@@ -179,6 +179,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FrontProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
     ],
 
