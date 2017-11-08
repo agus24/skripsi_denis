@@ -19,7 +19,9 @@ class FrontProvider extends ServiceProvider
                 'front.aboutus',
                 'front.termcondition',
                 'front.transaction',
-                'front.profile'
+                'front.profile',
+                'front.produk.detail',
+                'front.*'
             ],
             "App\Front\ViewComposer");
     }

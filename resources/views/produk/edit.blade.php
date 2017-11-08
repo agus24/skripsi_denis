@@ -34,7 +34,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <input type="hidden" name="gambar" id="gambar">
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="col-md-4 control-label" for="merk_id">Merk</label>
                                 <div class="col-md-6">
                                     <select class="form-control" name="merk_id">
@@ -48,7 +48,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="nama">Nama</label>
                                 <div class="col-md-6">

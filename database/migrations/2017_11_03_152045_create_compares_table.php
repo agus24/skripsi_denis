@@ -15,6 +15,9 @@ class CreateComparesTable extends Migration
     {
         Schema::create('compares', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('customer_id')->unsigned();
+            $table->integer('produk1')->unsigned();
+            $table->integer('produk2')->unsigned();
             $table->timestamps();
         });
     }

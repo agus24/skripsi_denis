@@ -15,6 +15,7 @@
         <i class="fa fa-user"></i>
         {{ Auth::guard('customer')->user()->nama }}
         <ul class="dropdown-menu">
+            <li><a href="{{ url('user/compare') }}"><i class="fa fa-refresh"></i> Compare</a></li>
             <li><a href="{{ url('user/transaction') }}"><i class="fa fa-exchange"></i> Transaction</a></li>
             <li><a href="{{ url('user/profile') }}"><i class="fa fa-user"></i> Profile</a></li>
             <div class="divider"></div>

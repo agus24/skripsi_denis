@@ -18,3 +18,10 @@ Route::get('test', 'ProdukController@removeAllTmp');
 Route::post('/login','Front\\AuthController@login');
 Route::get('/logout','Front\\AuthController@logout');
 
+Route::get('/produk/{id}','FrontController@produkDetail');
+
+Route::get('/compare/{id}', 'FrontController@compare');
+Route::get('user/compare', 'FrontController@dataCompare');
+Route::get('user/compare/clean', 'FrontController@removeCompare');
+
+Route::post('register', 'FrontController@userRegister');

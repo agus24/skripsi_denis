@@ -44,7 +44,7 @@ class ProdukController extends Controller
     {
         $this->validate($request, [
             "gambar" => "required",
-            "merk_id" => "required|numeric",
+            // "merk_id" => "required|numeric",
             "nama" => "required",
             "harga" => "required|numeric",
             "spesifikasi" => "required",
@@ -52,7 +52,7 @@ class ProdukController extends Controller
 
         $produk = new Produk;
         $produk->gambar = $request->gambar;
-        $produk->merk_id = $request->merk_id;
+        $produk->merk_id = 1;
         $produk->nama = $request->nama;
         $produk->harga = $request->harga;
         $produk->spesifikasi = $request->spesifikasi;
@@ -101,14 +101,14 @@ class ProdukController extends Controller
     {
         $this->validate($request, [
             "gambar" => "required",
-            "merk_id" => "required|numeric",
+            // "merk_id" => "required|numeric",
             "nama" => "required",
             "harga" => "required|numeric",
             "spesifikasi" => "required",
         ]);
 
         $produk->gambar = $request->gambar;
-        $produk->merk_id = $request->merk_id;
+        $produk->merk_id = 1;
         $produk->nama = $request->nama;
         $produk->harga = $request->harga;
         $produk->spesifikasi = $request->spesifikasi;

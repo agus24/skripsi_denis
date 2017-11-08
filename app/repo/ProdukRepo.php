@@ -54,4 +54,15 @@ class ProdukRepo
         });
         return $data;
     }
+
+    public static function produk($produk, $id)
+    {
+      $produk = $produk->find($id);
+      $gambar = json_decode($produk->gambar, true);
+      foreach ($gambar as $key => $val) {
+        $gambar[$key] = asset("storage/images/".$val);
+      }
+      $produk->gambar = $gambar;
+      return $produk;
+    }
 }

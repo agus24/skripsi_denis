@@ -31,18 +31,6 @@
                         <input type="text" id="address" required value="" name="address" class="form-control" placeholder="Address">
                     </div>
                     <div class="form-group">
-                        <label for="user_password">City</label>
-                        <input type="text" id="city" required value="" name="city" class="form-control" placeholder="city">
-                    </div>
-                    <div class="form-group">
-                        <label for="user_password">Province</label>
-                        <input type="text" id="province" required value="" name="province" class="form-control" placeholder="province">
-                    </div>
-                    <div class="form-group">
-                        <label for="user_password">Zip Code</label>
-                        <input type="text" id="zip_code" required value="" name="zip_code" class="form-control" placeholder="zip_code">
-                    </div>
-                    <div class="form-group">
                         <label for="user_password">Phone Number</label>
                         <input type="text" id="phone_number" required value="" name="phone_number" class="form-control" placeholder="phone_number">
                     </div>

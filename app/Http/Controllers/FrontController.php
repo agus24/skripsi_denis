@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Compare;
 use App\Customer;
 use App\Order;
 use App\Produk;
@@ -109,5 +110,73 @@ class FrontController extends Controller
         $customer->save();
 
         return redirect('user/profile');
+    }
+
+    public function produkDetail($id)
+    {
+        $produk = ProdukRepo::produk(new Produk, $id);
+        return view('front.produk.detail', compact('produk'));
+    }
+
+    public function compare($id)
+    {
+        if(Auth::guard('customer')->guest())
+        {
+            return Redirect::back()->withErrors(["ANDA HARUS LOGIN UNTUK MELAKUKAN PERBANDINGAN PRODUK"]);
+        }
+
+        $compare = new Compare;
+        if(!$compare->setProduk(Auth::guard('customer')->user()->id, $id))
+        {
+            return Redirect::back()->withErrors(["ANDA HANYA BISA MEMBANDINGKAN 2 BARANG ATAU BARANG YANG ANDA PILIH SUDAH TERDAFTAR DI LIST PEMBANDING KAMI"]);
+        }
+        return redirect()->back();
+    }
+
+    public function dataCompare()
+    {
+        if(Auth::guard('customer')->guest())
+        {
+            return Redirect::back()->withErrors(["ANDA HARUS LOGIN UNTUK MELIHAT PERBANDINGAN PRODUK"]);
+        }
+        $compare = new Compare;
+        $data = $compare->showCompared(Auth::guard('customer')->user()->id);
+        $data = $data->count() > 0 ? $data[0] : collect([]);
+        return view('front.userCompare', compact('data'));
+    }
+
+    public function removeCompare()
+    {
+        if(Auth::guard('customer')->guest())
+        {
+            return Redirect::back()->withErrors(["ANDA HARUS LOGIN UNTUK MELIHAT PERBANDINGAN PRODUK"]);
+        }
+
+        $compare = new Compare;
+        $compare->clearCompare(Auth::guard('customer')->user()->id);
+        return redirect()->back();
+    }
+
+    public function userRegister(Request $request)
+    {
+        $this->validate($request, [
+            "user_password" => "required|same:confirmation_password",
+            "user_email" => "required|email|unique:customers,email",
+            "name" => "required",
+            "address" => "required",
+            "phone_number" => "required"
+        ]);
+
+        $cust = new Customer;
+        $cust->nama = $request->name;
+        $cust->email = $request->user_email;
+        $cust->password = bcrypt($request->user_password);
+        $cust->alamat = $request->address;
+        $cust->telp = $request->phone_number;
+        $cust->status = 1;
+        $cust->save();
+
+        Auth::guard('customer')->loginUsingId($cust->id, true);
+        return redirect()->back();
     }
 }

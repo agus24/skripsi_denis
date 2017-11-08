@@ -165,17 +165,17 @@
                                                 <li>
                                                     <i class="fa fa-home"></i>
                                                     <h4>Address:</h4>
-                                                    {{-- <p>{{ $company->address }}</p> --}}
+                                                    <p>JL. RAYA SERANG KM. 68, NAMBO ILIR, SERANG, BANTEN</p>
                                                 </li>
                                                 <li>
                                                     <i class="fa fa-mobile"></i>
                                                     <h4>Phone:</h4>
-                                                    {{-- <p>{{ $company->phone }}</p> --}}
+                                                    <p>0254-402675</p>
                                                 </li>
                                                 <li>
                                                     <i class="fa fa-envelope"></i>
                                                     <h4>Email:</h4>
-                                                    {{-- <p>{{ $company->email }}</p> --}}
+                                                    <p>Kti.kingtire@yahoo.co.id</p>
                                                 </li>
                                             </ul>
                                         </div>

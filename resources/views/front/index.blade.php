@@ -22,7 +22,7 @@
                         </div>
                         <div class="info-content-wrap">
                             <h3 class="product_title">
-                                <a href="{{ url('produk/'.$product->id) }}">{{ $product->nama_merk. " " .$product->nama }}</a>
+                                <a href="{{ url('produk/'.$product->id) }}">{{ $product->nama }}</a>
                             </h3>
                             <div class="info-price">
                                 <span class="price">

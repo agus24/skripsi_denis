@@ -19,7 +19,6 @@
                                 <tr>
                                     <th width="5%">No.</th>
                                     <th>Gambar</th>
-                                    <th>Merk</th>
                                     <th>Nama</th>
                                     <th>Harga</th>
                                     <th width="30%">Spesifikasi</th>
@@ -33,7 +32,6 @@
                                     <?php $gambar = json_decode($item->gambar, true); ?>
                                     <?php $tampil = count($gambar) != 0 ? $gambar[0] : ""; ?>
                                     <td><img src="{{ asset("storage/images/".$tampil) }}" width="75px"></td>
-                                    <td>{{ $item->nama_merk }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td align="right">{{ number_format($item->harga) }}</td>
                                     <td>{!! $item->spesifikasi !!}</td>
