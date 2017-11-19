@@ -23,7 +23,7 @@ class OrderRepo
     {
         $order = new Order;
         $data['head'] = $order->join('customers','orders.customer_id','customers.id')
-                            ->select('orders.*','customers.nama as nama_customer')
+                            ->select('orders.*','customers.nama as nama_customer','customers.alamat as alamat_customer','customers.telp as telp_customer')
                             ->where('orders.id',$id)
                             ->get()[0];
         $data['det'] = DB::table('order_details')

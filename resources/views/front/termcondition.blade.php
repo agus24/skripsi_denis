@@ -9,7 +9,6 @@
                 <ul style="list-style: decimal !important">
                     <li>Pembayaran yang sah hanya pada rekening PT. KING TIRE INDONESIA</li>
                     <li>Garansi perusahaan 6 bulan</li>
-                    <li>orderan luar kota dikirim langsung dari cabang perusahaan terdekat</li>
                 </ul>
             </div>
         </div>

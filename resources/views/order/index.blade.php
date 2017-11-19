@@ -38,6 +38,7 @@
                                     <td>{!! $item->batal == 1 ? "<a href='".url('admin/order/'.$item->id."/reject")."' class='btn btn-warning btn-xs'>Dibatalkan</a>" : "" !!}</td>
                                     <td>
                                         <a href="{{ url('admin/order/'. $item->id) }}" class="btn btn-default btn-xs"><i class="fa fa-search"></i> Detail</a>
+                                        <a href="{{ url('print/invoice/'. $item->id) }}" class="btn btn-success btn-xs"><i class="fa fa-print"></i> Print Invoice</a>
                                         @if($item->tanggal_approve == NULL)
                                         <a href="{{ url('admin/order/' . $item->id . '/approve') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="md-check" aria-hidden="true"></i> Approve</button></a>
                                         @elseif($item->tanggal_kirim == NULL)

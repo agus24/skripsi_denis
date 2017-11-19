@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', "FrontController@index");
+Route::get('/home', "FrontController@index");
 Route::get('about-us','FrontController@aboutus');
 Route::get('termcondition','FrontController@termcondition');
 Route::get('addCart/{id}','FrontController@addCart');
@@ -25,3 +26,8 @@ Route::get('user/compare', 'FrontController@dataCompare');
 Route::get('user/compare/clean', 'FrontController@removeCompare');
 
 Route::post('register', 'FrontController@userRegister');
+
+
+Route::group(['prefix' => "print"], function() {
+    Route::get('invoice/{id}', "PrintController@invoice");
+});

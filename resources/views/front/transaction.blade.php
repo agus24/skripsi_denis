@@ -22,7 +22,8 @@
                 <td>{{ $value->tanggal_kirim }}</td>
                 <td>{{ $value->statusText }}</td>
                 <td>
-                    <button onclick="showDetail({{ $value->id }})"><i class="fa fa-eye"></i></button>
+                    <button onclick="showDetail({{ $value->id }})" class="btn btn-warning"><i class="fa fa-eye"></i></button>
+                    <a href="{{ url('print/invoice/'.$value->id) }}" class="btn btn-success"><i class="fa fa-print"></i></a>
                 </td>
             </tr>
             @endforeach

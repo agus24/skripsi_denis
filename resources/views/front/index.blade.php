@@ -24,11 +24,13 @@
                             <h3 class="product_title">
                                 <a href="{{ url('produk/'.$product->id) }}">{{ $product->nama }}</a>
                             </h3>
+                            @if(!Auth::guard('customer')->guest())
                             <div class="info-price">
                                 <span class="price">
                                     <span class="amount">Rp. {{ number_format($product->harga) }}</span>
                                 </span>
                             </div>
+                            @endif
                             <div class="loop-action">
                                 <div class="loop-add-to-cart">
                                     <a href="{{ url('addCart/'.$product->id) }}" class="btn btn-default">
