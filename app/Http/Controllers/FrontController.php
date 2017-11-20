@@ -53,8 +53,9 @@ class FrontController extends Controller
     public function checkout()
     {
         $cart = new UserCart;
-        $cart = $cart->getAllCart(Auth::guard('customer')->user()->id);
-        return view('front.checkout', compact('cart'));
+        $carts = $cart->getAllCart(Auth::guard('customer')->user()->id);
+        // dd($cart[0]);
+        return view('front.checkout', compact('carts'));
     }
 
     public function processCart()
