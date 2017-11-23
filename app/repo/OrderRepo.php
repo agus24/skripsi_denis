@@ -34,4 +34,31 @@ class OrderRepo
                     ->get();
         return $data;
     }
+
+    public static function getForReport($date)
+    {
+        $order = new Order;
+        return $order->join('customers','orders.customer_id','customers.id')
+                    ->select('orders.*','customers.nama as nama_customer','customers.alamat as alamat_customer','customers.telp as telp_customer')
+                    ->whereBetween('tanggal_order', $date)
+                    ->orderBy('tanggal_order', 'desc')
+                    ->get();
+    }
+
+    public static function getEachMonth()
+    {
+        $order = new Order;
+        $order = $order->groupBy(DB::raw('month(tanggal_order), year(tanggal_order)'))
+                    ->selectRaw('sum(grand_total) as total, month(tanggal_order) as bulan, year(tanggal_order) as tahun')
+                    ->orderBy('tanggal_order','asc')
+                    ->where('batal', "<>",1)
+                    ->get();
+        return $order;
+    }
+
+    public static function productEachMonth()
+    {
+        $barang = DB::table('v_barang_jual_perbulan')->groupBy('bulan')->select('nama','bulan',DB::raw('max(total) as jumlah'))->orderByRaw('left(bulan,4) asc, right(bulan,2)')->get();
+        return $barang;
+    }
 }

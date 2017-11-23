@@ -14,11 +14,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('customer','CustomerController');
     Route::resource('order','OrderController');
     Route::resource('banner', 'BannerController');
+    Route::resource('user', 'UserController');
     Route::get('banner/{id}/inactive', 'BannerController@inactive');
 
     Route::get('order/{id}/approve','OrderController@approve');
     Route::get('order/{id}/kirim','OrderController@kirim');
     Route::get('order/{id}/reject','OrderController@reject');
 
+    Route::get('laporan/penjualan','LaporanController@penjualan');
+    Route::post('laporan/penjualan','LaporanController@penjualanPrint');
+
+    Route::get('laporan/penjualan/perbulan', 'LaporanController@penjualanPerbulan');
+    Route::get('laporan/barang/perbulan', 'LaporanController@barangPerbulan');
 });
 

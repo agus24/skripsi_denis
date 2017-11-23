@@ -22,7 +22,7 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ route('brands.index') }}" ><span class="title">Merk</span></a></li>
+                    {{-- <li><a href="{{ route('brands.index') }}" ><span class="title">Merk</span></a></li> --}}
                     <li><a href="{{ route('produk.index') }}" ><span class="title">Products</span></a></li>
                 </ul><!--end /submenu -->
             </li>
@@ -47,8 +47,18 @@
                 <!--start submenu -->
                 <ul>
                     <li><a href="{{ url('admin/user') }}" ><span class="title">User Manager</span></a></li>
-                    <li><a href="{{ url('admin/company') }}" ><span class="title">Company</span></a></li>
-                    <li><a href="{{ url('admin/discount') }}" ><span class="title">Discount</span></a></li>
+                </ul><!--end /submenu -->
+            </li><!--end /menu-li -->
+            <li class="gui-folder">
+                <a>
+                    <div class="gui-icon"><i class="fa fa-list"></i></div>
+                    <span class="title">Laporan</span>
+                </a>
+                <!--start submenu -->
+                <ul>
+                    <li><a href="{{ url('admin/laporan/penjualan') }}" ><span class="title">Penjualan</span></a></li>
+                    <li><a href="{{ url('admin/laporan/penjualan/perbulan') }}" ><span class="title">Total Penjualan Perbulan</span></a></li>
+                    <li><a href="{{ url('admin/laporan/barang/perbulan') }}" ><span class="title">Barang Terlaris Perbulan</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 

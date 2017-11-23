@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($urut=1; $urut <= 10; $urut++)
+        for ($urut=1; $urut <= 1000; $urut++)
         {
             $listID = collect([]);
             $total = 0;
@@ -35,9 +35,11 @@ class OrderSeeder extends Seeder
                 $listID->push($produk->id);
                 $total += $produk->harga * $qty;
             }
-            $orderDate = Carbon::now()->format('Y-m-d');
-            $approveDate = rand(0,1) == 1? Carbon::now()->addDays(rand(5,10))->format('Y-m-d') : NULL;
-            $sendDate = ($approveDate != NULL && rand(0,1) == 1) ? Carbon::now()->addDays(rand(12,15))->format('Y-m-d') : NULL;
+            // $orderDate = Carbon::now()->format('Y-m-d');
+            $date = Carbon::create(2016, 1, 28, 0, 0, 0)->addWeeks(rand(1,104));
+            $orderDate = $date->format('Y-m-d');
+            $approveDate = rand(0,1) == 1? $date->addDays(rand(5,10))->format('Y-m-d') : NULL;
+            $sendDate = ($approveDate != NULL && rand(0,1) == 1) ? $date->addDays(rand(12,15))->format('Y-m-d') : NULL;
             $batal = rand(0,1);
             DB::table('orders')->insert([
                 "no_invoice" => $this->generateInvoice($urut),
