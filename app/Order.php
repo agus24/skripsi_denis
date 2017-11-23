@@ -12,11 +12,21 @@ class Order extends Model
     protected $table = 'orders';
     protected $primaryKey = "id";
 
+    protected $fillable = [
+        "no_invoice",
+        "tanggal_order",
+        "tanggal_approve",
+        "tanggal_kirim",
+        "customer_id",
+        "grand_total",
+        "batal"
+    ];
+
     public function processFromCart($cart)
     {
         $dataDetail = [];
         $data = $this->generateData($cart);
-        $this->insert($data['head']);
+        $this->create($data['head']);
         DB::table('order_details')->insert($data['det']);
     }
 

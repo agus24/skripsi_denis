@@ -13,11 +13,13 @@
         </thead>
         <tbody>
             <?php $total = 0; ?>
-            @foreach($cart as $key => $value)
+            @foreach($carts as $key => $value)
+                {{-- {{ dd($value) }} --}}
                 <tr>
                     <td>{{ $key+1 }}.</td>
                     <td>{{ $value->nama_produk }}</td>
                     <td>{{ $value->qty }}</td>
+                    {{-- <td>{{ $value->harga }}</td> --}}
                     <td align="right">{{ number_format($value->harga) }}</td>
                     <td align="right">{{ number_format($value->harga * $value->qty) }}</td>
                     <td>
