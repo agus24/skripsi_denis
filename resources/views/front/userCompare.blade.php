@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         @if($data->count() > 0)
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="col-md-12">
                     <img src="{{ $data->produk1_gambar }}" width="400px" height="400px">
                 </div>
@@ -14,7 +14,7 @@
                     <p><b>Spesifikasi :</b> <br>{!! $data->produk1_spesifikasi !!}</p>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="col-md-12">
                     <img src="{{ $data->produk2_gambar }}" width="400px" height="400px">
                 </div>
