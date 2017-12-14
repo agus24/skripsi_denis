@@ -59,6 +59,8 @@
                     <li><a href="{{ url('admin/laporan/penjualan') }}" ><span class="title">Penjualan</span></a></li>
                     <li><a href="{{ url('admin/laporan/penjualan/perbulan') }}" ><span class="title">Total Penjualan Perbulan</span></a></li>
                     <li><a href="{{ url('admin/laporan/barang/perbulan') }}" ><span class="title">Barang Terlaris Perbulan</span></a></li>
+                    <li><a href="{{ url('admin/laporan/pembelian/customer') }}" ><span class="title">Pembelian Customer</span></a></li>
+                    {{-- <li><a href="{{ url('admin/laporan/order/belumApprove') }}" ><span class="title">Order Belum Approve</span></a></li> --}}
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 

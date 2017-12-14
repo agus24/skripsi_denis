@@ -9,6 +9,7 @@
 </style>
 </head>
 <body>
+<center><img src="{{ asset('storage/LOGO%20KTI3.jpg') }}" width="500px"></center><hr>
 <h1>Barang Terlaris</h1>
 <table width="100%" border="1">
     <thead>

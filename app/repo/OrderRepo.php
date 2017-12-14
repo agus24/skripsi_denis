@@ -2,6 +2,7 @@
 
 namespace App\Repo;
 
+use App\Customer;
 use App\Order;
 use Illuminate\Support\Facades\DB;
 
@@ -60,5 +61,45 @@ class OrderRepo
     {
         $barang = DB::table('v_barang_jual_perbulan')->groupBy('bulan')->select('nama','bulan',DB::raw('max(total) as jumlah'))->orderByRaw('left(bulan,4) asc, right(bulan,2)')->get();
         return $barang;
+    }
+
+    public static function getAllCustomer($id)
+    {
+        $customer = new Customer;
+
+        foreach($customer->all() as $key => $value)
+        {
+            $data[] = $customer->getPembelianTerbanyak($value->id);
+        }
+
+        $data = collect($data)->sortBy('jumlah_beli')->values();
+        return $data;
+    }
+
+    public static function pembelianCustomer($periode)
+    {
+        $data = DB::table('orders')
+                    ->join('customers','customers.id','orders.customer_id')
+                    ->selectRaw('customer_id, sum(grand_total) as total_beli, customers.nama as nama_customer')
+                    ->groupBy('customer_id')
+                    ->where('batal','<>','1')
+                    ->whereBetween('tanggal_order', $periode)
+                    ->orderByRaw('sum(grand_total) desc')
+                    ->get();
+        $data = $data->map(function($value, $key) use($periode) {
+            $value->barangTerbanyak = (new Customer)->getPembelianTerbanyak($value->customer_id, $periode);
+            return $value;
+        });
+        return $data;
+    }
+
+    public static function orderBelumApprove()
+    {
+        $data = DB::table('orders')
+                    ->join('customers','customers.id','orders.customer_id')
+                    ->selectRaw('orders.* , customers.nama as nama_customer')
+                    ->whereNull('tanggal_approve')
+                    ->get();
+        return $data;
     }
 }

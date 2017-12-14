@@ -42,6 +42,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        {{-- <a href="{{ url('admin/laporan/penjualan/customer/' . $item->id) }}" title="Penjualan Customer"><button class="btn btn-success btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> Riwayat Pembelian</button></a> --}}
                                         <a href="{{ url('admin/customer/' . $item->id . '/edit') }}" title="Edit Brand"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Ubah</button></a>
                                         <form action="{{ url('admin/customer/'.$item->id) }}" method="POST" style="display:inline">
                                             {{ csrf_field() }}

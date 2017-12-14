@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <title>{{ Config::get('app.name') }}</title>
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="{{ asset('storage/logo2.png') }}">
 
         <link rel='stylesheet' href='{{ asset('front/css/settings.css') }}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{{ asset('front/css/bootstrap.min.css') }}' type='text/css' media='all'/>
@@ -97,7 +97,7 @@
                                                         <span>0</span>
                                                     </a>
                                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                                        <h1>{{ Config::get('app.name') }}</h1>
+                                                        <h1><img src="{{ asset('storage/logo2.png') }}" width="20%"> {{ Config::get('app.name') }}</h1>
                                                     </a>
                                                 </div>
                                                 <div class="navbar-header-right">
