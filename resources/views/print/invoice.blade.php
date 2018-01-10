@@ -26,8 +26,7 @@
 </style>
 </head>
 <body>
-
-<center><h1>PT King Tire Indonesia</h1></center>
+<center><img src="{{ asset('storage/LOGO%20KTI3.jpg') }}" width="500px"></center>
 <Table width="100%" border="1px">
     <tr style="background-color:blue">
         <td colspan="3"></td>
