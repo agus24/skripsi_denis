@@ -13,6 +13,7 @@
     <!-- BEGIN STYLESHEETS -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.css') }}">
+    <link rel="shortcut icon" href="{{ asset('storage/logo2.png') }}">
 <style>
 .table th{
     font-weight: bold !important;

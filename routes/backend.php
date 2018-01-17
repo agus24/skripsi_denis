@@ -26,5 +26,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('laporan/penjualan/perbulan', 'LaporanController@penjualanPerbulan');
     Route::get('laporan/barang/perbulan', 'LaporanController@barangPerbulan');
+    Route::get('laporan/penjualan/customer/{id}', 'LaporanController@penjualanCustomer');
+    Route::get('laporan/pembelian/customer', 'LaporanController@pembelianCustomer');
+    Route::post('laporan/pembelian/customer', 'LaporanController@pembelianCustomerPrint');
+    Route::get('laporan/order/belumApprove', 'LaporanController@orderBelumApprove');
 });
 
