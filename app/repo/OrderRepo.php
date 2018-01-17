@@ -74,6 +74,7 @@ class OrderRepo
             ->orWhere("customers.nama", "like", "%".$query."%")
             ->orWhere("grand_total", "like", "%".$query."%")
             ->paginate(15);
+    }
 
     public static function getAllCustomer($id)
     {

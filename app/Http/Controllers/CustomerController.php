@@ -14,7 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        if($_GET['search']) {
+        if(isset($_GET['search'])) {
             $search = $_GET['search'];
             $data = Customer::where("nama", "like", "%".$search."%")
                             ->orWhere('email', "like", "%".$search."%")

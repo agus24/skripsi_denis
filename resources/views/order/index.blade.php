@@ -9,6 +9,11 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        <form action="" method="get">
+                            <div class="form-group col-md-2 col-md-offset-10">
+                                <input type="Text" name="search" class="form-control" placeholder="search" style="border-bottom:1px solid black" value="{{ $_GET['search'] ?? "" }}">
+                            </div>
+                        </form>
                         <br/>
                         <br/>
                         <table class="table no-margin">
