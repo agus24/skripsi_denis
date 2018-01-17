@@ -65,4 +65,15 @@ class ProdukRepo
       $produk->gambar = $gambar;
       return $produk;
     }
+
+    public static function withSearch($query, $produk)
+    {
+      return $produk->join('merks','produks.merk_id','merks.id')
+              ->select('produks.*','merks.nama as nama_merk')
+              ->orwhere('produks.nama', 'like', "%".$query."%")
+              ->orwhere('produks.spesifikasi', 'like', "%".$query."%")
+              ->orwhere('produks.harga', 'like', "%".$query."%")
+              ->orwhere('merks.nama', 'like', "%".$query."%")
+              ->paginate(15);
+    }
 }

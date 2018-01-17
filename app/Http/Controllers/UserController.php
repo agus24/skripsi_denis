@@ -14,7 +14,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::paginate(15);
+        if(isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $data = User::where('name', "like", "%".$search."%")
+                        ->orWhere("username", "like", "%".$search."%")
+                        ->orWhere("email", "like", "%".$search."%")
+                        ->paginate(15);
+        } else {
+            $data = User::paginate(15);
+        }
         return view('user.index', compact('data'));
     }
 
