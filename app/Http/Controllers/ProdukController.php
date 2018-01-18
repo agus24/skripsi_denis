@@ -19,7 +19,11 @@ class ProdukController extends Controller
      */
     public function index(Produk $produk)
     {
-        $data = ProdukRepo::get($produk);
+        if(isset($_GET['search'])) {
+            $data = ProdukRepo::withSearch($_GET['search'], $produk);
+        } else {
+            $data = ProdukRepo::get($produk);
+        }
         return view('produk.index', compact('data'));
     }
 

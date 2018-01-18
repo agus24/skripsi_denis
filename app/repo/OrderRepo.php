@@ -63,6 +63,19 @@ class OrderRepo
         return $barang;
     }
 
+    public static function withSearch($query, $order)
+    {
+        return $order->join('customers','orders.customer_id','customers.id')
+            ->select('orders.*','customers.nama as nama_customer')
+            ->orWhere("no_invoice", "like", "%".$query."%")
+            ->orWhere("tanggal_order", "like", "%".$query."%")
+            ->orWhere('tanggal_approve', "like", "%".$query."%")
+            ->orWhere("tanggal_kirim", "like", "%".$query."%")
+            ->orWhere("customers.nama", "like", "%".$query."%")
+            ->orWhere("grand_total", "like", "%".$query."%")
+            ->paginate(15);
+    }
+
     public static function getAllCustomer($id)
     {
         $customer = new Customer;

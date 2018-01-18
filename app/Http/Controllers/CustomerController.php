@@ -14,7 +14,17 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data = Customer::orderby('status','desc')->paginate(15);
+        if(isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $data = Customer::where("nama", "like", "%".$search."%")
+                            ->orWhere('email', "like", "%".$search."%")
+                            ->orWhere('alamat', "like", "%".$search."%")
+                            ->orWhere('telp', 'like', "%".$search."%")
+                            ->orderBy('status', 'desc')
+                            ->paginate(15);
+        } else {
+            $data = Customer::orderby('status','desc')->paginate(15);
+        }
         return view('customer.index', compact('data'));
     }
 

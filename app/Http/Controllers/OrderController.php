@@ -16,7 +16,11 @@ class OrderController extends Controller
      */
     public function index(Order $order)
     {
-        $data = OrderRepo::get($order);
+        if(isset($_GET['search'])) {
+            $data = OrderRepo::withSearch($_GET['search'], $order);
+        } else {
+            $data = OrderRepo::get($order);
+        }
         return view('order.index',compact('data'));
     }
 
