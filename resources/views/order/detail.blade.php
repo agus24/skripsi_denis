@@ -40,7 +40,6 @@
                             </table>
                             <table class="table table-bordered">
                                 <thead>
-                                    <th>Merk</th>
                                     <th>Nama Produk</th>
                                     <th>Harga</th>
                                     <th>Jumlah</th>
@@ -49,7 +48,6 @@
                                 <tbody>
                                 @foreach($data['det'] as $detail)
                                     <tr>
-                                        <td>{{ $detail->nama_merk }}</td>
                                         <td>{{ $detail->nama_produk }}</td>
                                         <td align="right">{{ number_format($detail->harga) }}</td>
                                         <td align="right">{{ number_format($detail->qty) }}</td>
