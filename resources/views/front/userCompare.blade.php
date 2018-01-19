@@ -1,5 +1,16 @@
 @extends('front.layouts.app')
 
+@section('css')
+<style>
+    .left {
+        border-left : 3px solid black;
+    }
+    td {
+        width: 50%;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -7,19 +18,19 @@
             <table width="100%">
                 <tr>
                     <td><img src="{{ $data->produk1_gambar }}" width="400px" height="400px"></td>
-                    <td><img src="{{ $data->produk2_gambar }}" width="400px" height="400px"></td>
+                    <td class="left"><img src="{{ $data->produk2_gambar }}" width="400px" height="400px"></td>
                 </tr>
                 <tr>
                     <td><p><b>Nama Produk :</b> {{ $data->produk1_nama }}</p></td>
-                    <td><p><b>Nama Produk :</b> {{ $data->produk2_nama }}</p></td>
+                    <td class="left"><p><b>Nama Produk :</b> {{ $data->produk2_nama }}</p></td>
                 </tr>
                 <tr>
                     <td><p><b>Harga Produk :</b> {{ number_format($data->produk1_harga) }}</p></td>
-                    <td><p><b>Harga Produk :</b> {{ number_format($data->produk2_harga) }}</p></td>
+                    <td class="left"><p><b>Harga Produk :</b> {{ number_format($data->produk2_harga) }}</p></td>
                 </tr>
                 <tr>
                     <td><p><b>Spesifikasi :</b> <br>{!! $data->produk1_spesifikasi !!}</p></td>
-                    <td><p><b>Spesifikasi :</b> <br>{!! $data->produk2_spesifikasi !!}</p></td>
+                    <td class="left"><p><b>Spesifikasi :</b> <br>{!! $data->produk2_spesifikasi !!}</p></td>
                 </tr>
             </table>
             {{-- <div class="col-md-6">
