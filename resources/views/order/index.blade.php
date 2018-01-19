@@ -49,6 +49,9 @@
                                         @elseif($item->tanggal_kirim == NULL)
                                         <a href="{{ url('admin/order/' . $item->id . '/kirim') }}" title="Edit Brand"><button class="btn btn-success btn-xs"><i class="md-check" aria-hidden="true"></i> Kirim</button></a>
                                         @endif
+                                        @if($item->batal != 1)
+                                        <a href="{{ url('admin/order/batal/'.$item->id) }}"><button class="btn btn-warning btn-xs">Batal</button></a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

@@ -113,4 +113,15 @@ class OrderController extends Controller
 
         return view('order.reject',compact('reject'));
     }
+
+    public function batal($id)
+    {
+        return view('order.batal', compact('id'));
+    }
+
+    public function batalKan($id, Request $request)
+    {
+        $reject = OrderRepo::reject($id, $request->alasan);
+        return redirect(url('admin/order/'));
+    }
 }

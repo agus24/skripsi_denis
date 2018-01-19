@@ -4,6 +4,7 @@ namespace App\Repo;
 
 use App\Customer;
 use App\Order;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class OrderRepo
@@ -114,5 +115,12 @@ class OrderRepo
                     ->whereNull('tanggal_approve')
                     ->get();
         return $data;
+    }
+
+    public static function reject($id, $alasan)
+    {
+        DB::table('order_cancels')->insert(["order_id" => $id, "tanggal_batal" => Carbon::now(), "alasan" => $alasan]);
+        DB::table('orders')->where('id', $id)->update(["batal" => 1]);
+        return true;
     }
 }

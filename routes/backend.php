@@ -30,5 +30,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('laporan/pembelian/customer', 'LaporanController@pembelianCustomer');
     Route::post('laporan/pembelian/customer', 'LaporanController@pembelianCustomerPrint');
     Route::get('laporan/order/belumApprove', 'LaporanController@orderBelumApprove');
+
+    Route::get("order/batal/{id}", "OrderController@batal");
+    Route::post("order/batal/{id}", "OrderController@batalKan");
 });
 
