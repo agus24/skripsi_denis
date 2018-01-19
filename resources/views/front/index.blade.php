@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div class="col-md-2 col-md-offset-10">
+        <a href="javascript:showSearchModal()"><i class="fa fa-search"></i> Search</a>
+    </div>
     @foreach($products as $key => $product)
     <li class="product masonry-item product-no-border style-2 col-md-3 col-sm-6">
         <div class="product-container">
@@ -50,4 +53,37 @@
     @endforeach
 </div>
 <Br>
+@endsection
+
+@section('modal')
+<div id="searchModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+            <form action="" method="get" class="form-horizontal">
+                <div class="col-md-10">
+                    <input type="text" name="search" id="searchBox" class="form-control" placeholder="search" value="{{ $_GET['search'] ?? "" }}">
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+@endsection
+
+@section('script')
+<Script>
+    window.$ = jQuery;
+    function showSearchModal() {
+        $('#searchModal').modal('show');
+    }
+</Script>
 @endsection

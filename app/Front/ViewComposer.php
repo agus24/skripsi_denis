@@ -19,13 +19,14 @@ class ViewComposer
 
     public function compose(View $view)
     {
-        $view->with('products', $this->getProduct());
+        $search = $_GET['search'] ?? "";
+        $view->with('products', $this->getProduct($search));
         $view->with('cart', $this->cart);
     }
 
-    private function getProduct()
+    private function getProduct($search)
     {
-        return ProdukRepo::getAll(new Produk);
+        return ProdukRepo::getAll(new Produk, $search);
     }
 
     private function setCart()

@@ -13,16 +13,23 @@ class ProdukRepo
                       ->paginate(15);
     }
 
-    public static function getAll(Produk $produk)
+    public static function getAll(Produk $produk, $search = "")
     {
-        return $produk->join('merks','produks.merk_id','merks.id')
-                      ->select('produks.*','merks.nama as nama_merk')
-                      ->get()
+        $produk = $produk->join('merks','produks.merk_id','merks.id')
+                      ->select('produks.*','merks.nama as nama_merk');
+        if($search != "") {
+          $produk = $produk->where('produks.nama', 'like', "%".$search."%")
+                            ->orWhere('produks.spesifikasi', 'like', "%".$search."%")
+                            ->orWhere('produks.harga', '=', $search);
+        }
+        $produk = $produk->get()
                       ->map(function($value , $key) {
                         $value->hargaText = number_format($value->harga);
                         $value->gambar = json_decode($value->gambar,true)[0];
                         return $value;
                       });
+
+        return $produk;
     }
 
     public static function getApi(Produk $produk)
