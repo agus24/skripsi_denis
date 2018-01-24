@@ -7,6 +7,7 @@ use App\Customer;
 use App\Order;
 use App\Produk;
 use App\Repo\ProdukRepo;
+use App\Repo\OrderRepo;
 use App\UserCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -178,6 +179,13 @@ class FrontController extends Controller
         $cust->save();
 
         Auth::guard('customer')->loginUsingId($cust->id, true);
+        return redirect()->back();
+    }
+
+    public function batalOrder(Request $request, $id)
+    {
+        $this->validate($request, ["alasan" => "required"]);
+        OrderRepo::reject($id, $request->alasan);
         return redirect()->back();
     }
 }

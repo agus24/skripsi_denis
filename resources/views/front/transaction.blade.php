@@ -1,5 +1,16 @@
 @extends('front.layouts.app')
 
+@section('style')
+<style>
+.batal {
+    background-color:gray;
+}
+.batal td {
+    color:white;
+}
+</style>
+@endsection
+
 @section('content')
 <div class="container">
     <table class="table table-bordered table-stripped">
@@ -20,8 +31,11 @@
                 <td>{{ $value->tanggal_order }}</td>
                 <td>{{ $value->tanggal_approve }}</td>
                 <td>{{ $value->tanggal_kirim }}</td>
-                <td>{{ $value->statusText }}</td>
+                <td>{!! $value->statusText !!}</td>
                 <td>
+                    @if($value->tanggal_approve == NULL && $value->batal == 0)
+                    <button class="btn btn-danger" onclick="batalOrder({{$value->id}})"><i class="fa fa-close"></i></button>
+                    @endif
                     <button onclick="showDetail({{ $value->id }})" class="btn btn-warning"><i class="fa fa-eye"></i></button>
                     <a href="{{ url('print/invoice/'.$value->id) }}" class="btn btn-success"><i class="fa fa-print"></i></a>
                 </td>
@@ -62,6 +76,12 @@
         });
         return html;
     }
+
+    function batalOrder(id) {
+        let action = "{{ url('pembatalanOrder') }}/";
+        $('#formBatalOrder').attr('action', action + id);
+        $('#modalBatalOrder').modal('show');
+    }
 </Script>
 @endsection
 
@@ -79,6 +99,28 @@
                 </thead>
                 <tbody></tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalBatalOrder" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-title">
+                    Form Pembatalan Order
+                </div>
+                <form method="POST" action="{{ url('pembatalanOrder') }}/" id="formBatalOrder">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label>Alasan</label>
+                        <textarea class="form-control" name="alasan"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="Btn btn-success">Batalkan</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

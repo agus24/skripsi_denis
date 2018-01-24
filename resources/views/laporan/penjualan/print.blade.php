@@ -21,7 +21,7 @@
 <body>
     <div class="container">
         <h1>Penjualan</h1>
-        <table class="tbl">
+        <table class="tbl" border=1>
             <thead>
                 <th>No.</th>
                 <th>Tanggal Order</th>

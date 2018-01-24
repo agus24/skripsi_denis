@@ -13,6 +13,7 @@ class OrderRepo
     {
         return $order->join('customers','orders.customer_id','customers.id')
                     ->select('orders.*','customers.nama as nama_customer')
+                    ->orderBy('tanggal_order', 'desc')
                     ->paginate(15);
     }
 
@@ -74,6 +75,7 @@ class OrderRepo
             ->orWhere("tanggal_kirim", "like", "%".$query."%")
             ->orWhere("customers.nama", "like", "%".$query."%")
             ->orWhere("grand_total", "like", "%".$query."%")
+            ->orderBy('tanggal_order', 'desc')
             ->paginate(15);
     }
 

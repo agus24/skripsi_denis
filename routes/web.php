@@ -27,6 +27,7 @@ Route::get('user/compare/clean', 'FrontController@removeCompare');
 
 Route::post('register', 'FrontController@userRegister');
 
+Route::post('pembatalanOrder/{id}', 'FrontController@batalOrder');
 
 Route::group(['prefix' => "print"], function() {
     Route::get('invoice/{id}', "PrintController@invoice");

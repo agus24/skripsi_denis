@@ -32,7 +32,7 @@ class Order extends Model
 
     public function findCustomer($customer_id)
     {
-        return $this->mapOrderCustomer($this->where('customer_id', $customer_id)->get());
+        return $this->mapOrderCustomer($this->where('customer_id', $customer_id)->orderBy('tanggal_order', 'desc')->get());
     }
 
     public function findDetail($id)
@@ -61,6 +61,12 @@ class Order extends Model
                 } elseif(!$value->tanggal_kirim) {
                     $statusText = "Belum Di Kirim";
                     $status = 1;
+                }
+
+                if($value->batal == 1) {
+                    $cancel = DB::table('order_cancels')->where('order_id', $value->id)->first();
+                    $statusText = "Dibatalkan ".$cancel->tanggal_batal." <br>Karena : ".$cancel->alasan;
+                    $status = 3;
                 }
                 $value->status = $status;
                 $value->statusText = $statusText;
