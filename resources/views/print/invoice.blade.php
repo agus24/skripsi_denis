@@ -37,7 +37,7 @@
     </tr>
     <tr>
         <td>Waktu Transaksi</td>
-        <td><b>{{ Carbon\Carbon::createFromFormat('Y-m-d h:i:s', $order['head']->created_at)->formatLocalized('%d %B %Y %H.%M WIB') }}</b></td>
+        <td><b>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $order['head']->created_at)->formatLocalized('%d %B %Y %H.%M WIB') }}</b></td>
     </tr>
     <tr>
         <td>Pembeli</td>
