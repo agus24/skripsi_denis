@@ -11,7 +11,6 @@ class PrintController extends Controller
     public function invoice($id)
     {
         $order = OrderRepo::getWithDetail($id);
-        // dd($order);
         return view('print.invoice', compact('order'));
     }
 }
