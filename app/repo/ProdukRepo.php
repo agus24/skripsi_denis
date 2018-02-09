@@ -13,15 +13,22 @@ class ProdukRepo
                       ->paginate(15);
     }
 
-    public static function getAll(Produk $produk, $search = "")
+    public static function getAll(Produk $produk, $search = "", $filter = "")
     {
         $produk = $produk->join('merks','produks.merk_id','merks.id')
                       ->select('produks.*','merks.nama as nama_merk');
+
+        if($filter != "")
+        {
+          $produk = $produk->where('produks.merk_id', $filter);
+        }
+
         if($search != "") {
           $produk = $produk->where('produks.nama', 'like', "%".$search."%")
                             ->orWhere('produks.spesifikasi', 'like', "%".$search."%")
                             ->orWhere('produks.harga', '=', $search);
         }
+
         $produk = $produk->get()
                       ->map(function($value , $key) {
                         $value->hargaText = number_format($value->harga);

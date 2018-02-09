@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="col-md-2 col-md-offset-10">
+    <div class="col-md-2 col-md-offset-8">
+        <select class="form-control" onchange="filter(this)">
+            <option value="">Filter</option>
+            <option value="2" {{ isset($_GET['filter']) && $_GET['filter'] == 2 ? "selected" : "" }}>Tube</option>
+            <option value="1" {{ isset($_GET['filter']) && $_GET['filter'] == 1 ? "selected" : "" }}>Tubeless</option>
+        </select>
+    </div>
+    <div class="col-md-2">
         <a href="javascript:showSearchModal()"><i class="fa fa-search"></i> Search</a>
     </div>
     @foreach($products as $key => $product)
@@ -58,13 +65,12 @@
 @section('modal')
 <div id="searchModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body">
         <div class="row">
-            <form action="" method="get" class="form-horizontal">
+            <form action="" method="get" class="form-horizontal" id="searchForm">
                 <div class="col-md-10">
+                    <input type="hidden" name="filter" id="filter" value="{{ $_GET['filter'] ?? "" }}">
                     <input type="text" name="search" id="searchBox" class="form-control" placeholder="search" value="{{ $_GET['search'] ?? "" }}">
                 </div>
                 <div class="col-md-2">
@@ -84,6 +90,12 @@
     window.$ = jQuery;
     function showSearchModal() {
         $('#searchModal').modal('show');
+    }
+
+    function filter(el) {
+        let filter = el.value;
+        $('#filter').val(filter);
+        $('#searchForm').submit();
     }
 </Script>
 @endsection

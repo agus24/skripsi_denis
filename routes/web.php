@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', "FrontController@index");
+Route::get('/', "FrontController@index")->name('front_home');
 Route::get('/home', "FrontController@index");
 Route::get('about-us','FrontController@aboutus');
 Route::get('termcondition','FrontController@termcondition');
