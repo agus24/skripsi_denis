@@ -14,4 +14,5 @@
     </ul>
 </li> --}}
 <li><a href="{{ url('about-us') }}"><span class="underline">About Us</span></a></li>
+<li><a href="{{ url('tire-instruction') }}"><span class="underline">Tire Instruction</span></a></li>
 <li><a href="{{ url('termcondition') }}"><span class="underline">Term & Condition</span></a></li>

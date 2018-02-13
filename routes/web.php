@@ -29,6 +29,10 @@ Route::post('register', 'FrontController@userRegister');
 
 Route::post('pembatalanOrder/{id}', 'FrontController@batalOrder');
 
+Route::get('tire-instruction', function() {
+    return view('front.instruction');
+});
+
 Route::group(['prefix' => "print"], function() {
     Route::get('invoice/{id}', "PrintController@invoice");
 });
