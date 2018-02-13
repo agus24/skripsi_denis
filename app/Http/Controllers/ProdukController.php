@@ -112,7 +112,6 @@ class ProdukController extends Controller
         ]);
 
         $produk->gambar = $request->gambar;
-        $produk->merk_id = 1;
         $produk->nama = $request->nama;
         $produk->harga = $request->harga;
         $produk->spesifikasi = $request->spesifikasi;
